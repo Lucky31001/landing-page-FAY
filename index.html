@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="fr" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="FAY (Found Around You) vous aide à découvrir et rejoindre des événements locaux autour de vous."
+    />
+    <title>FAY — Found Around You</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <nav class="nav container">
+        <a class="logo" href="#">FAY <span>(Found Around You)</span></a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
+          🌙
+        </button>
+      </nav>
+
+      <div class="hero-content container reveal">
+        <p class="eyebrow">Réseau social d'événements locaux</p>
+        <h1>Trouve, rejoins et crée des moments près de chez toi.</h1>
+        <p class="subtitle">
+          FAY connecte participants et créateurs pour faire vibrer ta ville avec des événements
+          qui te ressemblent.
+        </p>
+        <div class="cta-group">
+          <a href="#inscription" class="btn btn-primary">Je suis un Participant</a>
+          <a href="#inscription" class="btn btn-secondary">Je suis un Créateur</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="comment-ca-marche" class="section container reveal">
+        <h2>Comment ça marche</h2>
+        <div class="grid two-cols">
+          <article class="panel">
+            <h3>Parcours User (Participant)</h3>
+            <ol>
+              <li>Active ta géolocalisation pour découvrir les événements autour de toi.</li>
+              <li>Filtre par catégorie (musique, sport, food, culture...).</li>
+              <li>Rejoins l'événement et échange avec la communauté.</li>
+            </ol>
+          </article>
+          <article class="panel">
+            <h3>Parcours Créateur</h3>
+            <ol>
+              <li>Crée ton profil organisateur en quelques clics.</li>
+              <li>Publie ton événement avec date, lieu et infos pratiques.</li>
+              <li>Gère les inscriptions et anime ta communauté locale.</li>
+            </ol>
+          </article>
+        </div>
+      </section>
+
+      <section id="fonctionnalites" class="section alt reveal">
+        <div class="container">
+          <h2>Fonctionnalités clés</h2>
+          <div class="grid cards">
+            <article class="card">
+              <div class="icon" aria-hidden="true">📍</div>
+              <h3>Géolocalisation intelligente</h3>
+              <p>Repère instantanément les événements les plus proches de toi.</p>
+            </article>
+            <article class="card">
+              <div class="icon" aria-hidden="true">🏷️</div>
+              <h3>Catégories d'events</h3>
+              <p>Explore facilement les activités selon tes passions.</p>
+            </article>
+            <article class="card">
+              <div class="icon" aria-hidden="true">🗓️</div>
+              <h3>Calendrier intégré</h3>
+              <p>Planifie ta semaine et ne rate plus aucun bon plan local.</p>
+            </article>
+            <article class="card">
+              <div class="icon" aria-hidden="true">🔔</div>
+              <h3>Alertes personnalisées</h3>
+              <p>Reçois des notifications quand un event t'intéresse apparaît.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="temoignages" class="section container reveal">
+        <h2>Témoignages</h2>
+        <div class="grid cards">
+          <blockquote class="card quote">
+            "Grâce à FAY, j'ai découvert des concerts incroyables à deux rues de chez moi !"
+            <cite>— Lina, participante</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            "J'ai rempli mon atelier créatif en 48h. La communauté est super active."
+            <cite>— Mehdi, créateur</cite>
+          </blockquote>
+          <blockquote class="card quote">
+            "Simple, fun et local. C'est devenu mon réflexe pour sortir le week-end."
+            <cite>— Clara, participante</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="inscription" class="section alt reveal">
+        <div class="container">
+          <h2>Inscription</h2>
+          <div class="grid two-cols">
+            <article class="panel pricing">
+              <h3>Compte User</h3>
+              <p class="price">Gratuit</p>
+              <ul>
+                <li>Accès illimité aux événements locaux</li>
+                <li>Recommandations personnalisées</li>
+                <li>Messagerie communautaire</li>
+              </ul>
+              <a href="#" class="btn btn-primary">Créer mon compte User</a>
+            </article>
+            <article class="panel pricing">
+              <h3>Compte Créateur</h3>
+              <p class="price">Gratuit</p>
+              <ul>
+                <li>Publication d'événements</li>
+                <li>Gestion des participants</li>
+                <li>Statistiques de visibilité</li>
+              </ul>
+              <a href="#" class="btn btn-secondary">Créer mon compte Créateur</a>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-grid">
+        <p class="logo">FAY <span>(Found Around You)</span></p>
+        <div class="footer-links">
+          <a href="#comment-ca-marche">Comment ça marche</a>
+          <a href="#fonctionnalites">Fonctionnalités</a>
+          <a href="#inscription">Inscription</a>
+        </div>
+        <div class="socials" aria-label="Réseaux sociaux">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="X">X</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+      <p class="copyright">© 2026 FAY — Tous droits réservés.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
