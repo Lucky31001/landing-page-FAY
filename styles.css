@@ -40,15 +40,28 @@ body {
 }
 
 .hero {
-  padding: 1.4rem 0 4rem;
+  padding: 5.5rem 0 4rem;
   color: #fff;
   background: linear-gradient(135deg, #5f44ff, #2998ff);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.35);
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0.75rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 92vw);
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(17, 24, 49, 0.45);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(17, 24, 49, 0.28);
 }
 
 .logo {
@@ -74,7 +87,7 @@ body {
 
 .hero-content {
   text-align: center;
-  padding-top: 3.5rem;
+  padding-top: 1.5rem;
 }
 
 .eyebrow {
