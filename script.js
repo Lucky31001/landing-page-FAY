@@ -30,22 +30,33 @@ if (window.gsap && window.ScrollTrigger) {
     const title = section.querySelector('.section-title');
     const kicker = section.querySelector('.section-kicker');
     const text = section.querySelector('.section-text');
+    const introElements = [kicker, title, text].filter(Boolean);
 
-    gsap.set([kicker, title, text], { autoAlpha: 0, y: 36 });
+    if (introElements.length) {
+      gsap.set(introElements, { autoAlpha: 0, y: 36 });
+    }
 
     const timeline = gsap.timeline({
       scrollTrigger: {
         trigger: section,
-        start: 'top 70%',
-        end: 'bottom 35%',
+        start: 'top top',
+        end: '+=100%',
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
         scrub: 1.1,
       },
     });
 
-    timeline
-      .to(kicker, { autoAlpha: 1, y: 0, duration: 0.6 }, 0)
-      .to(title, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.1)
-      .to(text, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.2);
+    if (kicker) {
+      timeline.to(kicker, { autoAlpha: 1, y: 0, duration: 0.6 }, 0);
+    }
+    if (title) {
+      timeline.to(title, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.1);
+    }
+    if (text) {
+      timeline.to(text, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.2);
+    }
   });
 
   gsap.fromTo(
