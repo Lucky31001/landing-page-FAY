@@ -43,53 +43,101 @@ if (window.gsap && window.ScrollTrigger) {
     const photoElements = section.querySelectorAll('.photo-card, .photo-chip, .parallax-photo, .cta-photo');
     const introElements = [kicker, title, text].filter(Boolean);
 
+    gsap.set(section, { autoAlpha: 0.45, scale: 0.96, y: 48, filter: 'blur(3px)' });
+
     if (introElements.length) {
-      gsap.set(introElements, { autoAlpha: 0, y: 36 });
+      gsap.set(introElements, { autoAlpha: 0, y: 30 });
     }
     if (photoElements.length) {
       gsap.set(photoElements, {
         autoAlpha: 0,
-        y: 60,
-        scale: 0.88,
-        rotate: (index) => (index % 2 === 0 ? -5 : 5),
+        y: 46,
+        scale: 0.92,
+        rotate: (index) => (index % 2 === 0 ? -4 : 4),
       });
     }
 
-    const timeline = gsap.timeline({
+    ScrollTrigger.create({
+      trigger: section,
+      start: 'top 72%',
+      onEnter: () => section.classList.add('is-active'),
+      onEnterBack: () => section.classList.add('is-active'),
+      onLeave: () => section.classList.remove('is-active'),
+      onLeaveBack: () => section.classList.remove('is-active'),
+    });
+
+    gsap.to(section, {
+      autoAlpha: 1,
+      scale: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      duration: 1,
+      ease: 'power3.out',
       scrollTrigger: {
         trigger: section,
-        start: 'top top',
-        end: '+=100%',
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-        scrub: 1.1,
+        start: 'top 78%',
+        toggleActions: 'play reverse play reverse',
       },
     });
 
     if (kicker) {
-      timeline.to(kicker, { autoAlpha: 1, y: 0, duration: 0.6 }, 0);
-    }
-    if (title) {
-      timeline.to(title, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.1);
-    }
-    if (text) {
-      timeline.to(text, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.2);
-    }
-    if (photoElements.length) {
-      timeline.to(
-        photoElements,
-        {
-          autoAlpha: 1,
-          y: 0,
-          scale: 1,
-          rotate: 0,
-          stagger: 0.1,
-          duration: 0.9,
-          ease: 'power2.out',
+      gsap.to(kicker, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.45,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 76%',
+          toggleActions: 'play reverse play reverse',
         },
-        0.05
-      );
+      });
+    }
+
+    if (title) {
+      gsap.to(title, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.75,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 74%',
+          toggleActions: 'play reverse play reverse',
+        },
+      });
+    }
+
+    if (text) {
+      gsap.to(text, {
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.65,
+        ease: 'power2.out',
+        delay: 0.06,
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 72%',
+          toggleActions: 'play reverse play reverse',
+        },
+      });
+    }
+
+    if (photoElements.length) {
+      gsap.to(photoElements, {
+        autoAlpha: 1,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        stagger: 0.08,
+        duration: 0.8,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: section,
+          start: 'top 76%',
+          toggleActions: 'play reverse play reverse',
+        },
+      });
     }
   });
 

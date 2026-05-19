@@ -6,7 +6,7 @@ Landing page statique de l’application mobile **FAY (Found Around You)**, déd
 
 Le projet met en avant une expérience visuelle fluide avec :
 
-- sections plein écran avec scroll-snap
+- sections plein écran avec transitions de révélation progressives
 - animations au scroll avec GSAP + ScrollTrigger (chargés via CDN)
 - effet parallax sur la section immersion
 - bascule thème clair/sombre avec sauvegarde dans `localStorage`
