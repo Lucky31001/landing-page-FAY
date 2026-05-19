@@ -1,0 +1,19 @@
+:root {
+  --bg: #f4f6fb;
+  --text: #111428;
+  --muted: #4a5074;
+  --surface: #ffffff;
+  --line: rgba(17, 20, 40, 0.08);
+  --accent: #5f44ff;
+  --accent-2: #2ea0ff;
+}
+
+html[data-theme='dark'] {
+  --bg: #070a14;
+  --text: #f3f5ff;
+  --muted: #adb4da;
+  --surface: #111628;
+  --line: rgba(225, 231, 255, 0.12);
+  --accent: #9c8eff;
+  --accent-2: #6ebfff;
+}

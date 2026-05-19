@@ -13,9 +13,12 @@ Le projet met en avant une expérience visuelle fluide avec :
 
 ## Structure du projet
 
-- `index.html` : structure de la landing page
-- `styles.css` : styles, thèmes et responsive
+- `index.html` : shell principal + injection des sections HTML
+- `partials/` : sections HTML (`section-intro.html`, `section-features.html`, etc.)
+- `styles.css` : point d’entrée CSS (imports)
+- `css/` : styles séparés par responsabilité (tokens, base, navigation, sections, responsive)
 - `js/main.js` : point d’entrée JavaScript
+- `js/partials.js` : chargement des sections HTML
 - `js/theme.js` : gestion du thème clair/sombre
 - `js/images.js` : fallback des images en erreur
 - `js/animations.js` : animations GSAP + ScrollTrigger
@@ -25,8 +28,8 @@ Le projet met en avant une expérience visuelle fluide avec :
 
 Aucune installation n’est nécessaire.
 
-1. Ouvrir `index.html` dans un navigateur
-2. Ou lancer un serveur statique local (optionnel) pour un meilleur confort de développement
+1. Lancer un serveur statique local dans la racine du projet
+2. Ouvrir `index.html` via ce serveur
 
 ## Technologies
 
