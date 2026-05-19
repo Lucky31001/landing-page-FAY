@@ -32,6 +32,11 @@ body {
   line-height: 1.45;
 }
 
+html {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0;
+}
+
 h1,
 h2,
 p {
@@ -85,11 +90,14 @@ main {
 
 .scroll-section {
   min-height: 100vh;
+  min-height: 100svh;
   position: relative;
   display: grid;
   place-items: center;
   padding: 6rem 1.4rem 2.5rem;
   border-bottom: 1px solid var(--line);
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
 }
 
 .content-wrap {
