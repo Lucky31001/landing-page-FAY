@@ -158,18 +158,29 @@ if (window.gsap && window.ScrollTrigger) {
     }
   );
 
-  gsap.from('.feature-card', {
-    x: (index) => (index % 2 === 0 ? -85 : 85),
-    autoAlpha: 0,
-    stagger: 0.18,
-    ease: 'power2.out',
-    scrollTrigger: {
-      trigger: '.section-features',
-      start: 'top 62%',
-      end: 'bottom 45%',
-      scrub: 0.9,
+  gsap.fromTo(
+    '.feature-card',
+    {
+      autoAlpha: 0,
+      y: 24,
+      scale: 0.96,
+      filter: 'blur(2px)',
     },
-  });
+    {
+      autoAlpha: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      stagger: 0.12,
+      duration: 0.72,
+      ease: 'power3.out',
+      scrollTrigger: {
+        trigger: '.section-features',
+        start: 'top 68%',
+        toggleActions: 'play reverse play reverse',
+      },
+    }
+  );
 
   gsap.to('.photo-card-main', {
     yPercent: -14,
