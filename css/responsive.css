@@ -1,40 +1,48 @@
+@media (max-width: 980px) {
+  .section-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .section-layout-reverse > .section-copy,
+  .section-layout-reverse > .section-media {
+    order: initial;
+  }
+
+  .section-copy {
+    text-align: center;
+  }
+
+  .section-text {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .floating-orb {
+    right: 50%;
+    transform: translateX(50%);
+  }
+}
+
 @media (min-width: 720px) {
   .feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-@media (max-width: 900px) {
-  .photo-card-left,
-  .photo-card-right {
-    display: none;
-  }
-
-  .photo-card-main {
-    width: min(62vw, 400px);
-    top: 18%;
-  }
-
-  .photo-strip,
-  .cta-photo-wall {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .photo-strip .photo-chip:last-child,
-  .cta-photo-wall .cta-photo:last-child {
-    display: none;
-  }
-
-  .parallax-photo {
-    width: min(46vw, 320px);
-  }
-}
-
 @media (max-width: 640px) {
+  .scroll-section {
+    padding-top: 5.5rem;
+  }
+
   .photo-strip,
   .cta-photo-wall {
     grid-template-columns: 1fr;
-    max-width: 320px;
+  }
+
+  .photo-card-main,
+  .photo-card-left,
+  .photo-card-right {
+    grid-column: 1 / -1;
   }
 
   .photo-b {
