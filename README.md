@@ -1,6 +1,6 @@
 # FAY — Landing Page
 
-Landing page statique pour **FAY (Found Around You)**, une application de découverte d’événements locaux.
+Landing page statique de l’application mobile **FAY (Found Around You)**, dédiée à la découverte et à l’organisation d’événements locaux.
 
 ## Aperçu
 

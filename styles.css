@@ -32,11 +32,6 @@ body {
   line-height: 1.45;
 }
 
-html {
-  scroll-snap-type: y mandatory;
-  scroll-padding-top: 0;
-}
-
 h1,
 h2,
 p {
@@ -96,8 +91,6 @@ main {
   place-items: center;
   padding: 6rem 1.4rem 2.5rem;
   border-bottom: 1px solid var(--line);
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
 }
 
 .content-wrap {
@@ -138,8 +131,76 @@ main {
   opacity: 0.26;
 }
 
+.photo-story {
+  position: absolute;
+  inset: 8% 6%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.photo-card {
+  position: absolute;
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(10, 16, 40, 0.25);
+  border: 1px solid color-mix(in oklab, var(--surface) 42%, transparent);
+}
+
+.photo-card img,
+.photo-chip img,
+.parallax-photo img,
+.cta-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-card-main {
+  width: min(36vw, 480px);
+  aspect-ratio: 5 / 6;
+  top: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.photo-card-left,
+.photo-card-right {
+  width: min(22vw, 280px);
+  aspect-ratio: 4 / 5;
+  top: 38%;
+}
+
+.photo-card-left {
+  left: 6%;
+}
+
+.photo-card-right {
+  right: 6%;
+}
+
 .section-features {
   background: color-mix(in oklab, var(--surface) 68%, transparent);
+}
+
+.photo-strip {
+  position: absolute;
+  inset: auto 8% 11%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.photo-chip {
+  margin: 0;
+  border-radius: 0.9rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  min-height: clamp(120px, 20vw, 200px);
+  box-shadow: 0 14px 30px rgba(10, 16, 40, 0.2);
 }
 
 .feature-grid {
@@ -173,12 +234,56 @@ main {
   opacity: 0.2;
 }
 
+.parallax-photo {
+  position: absolute;
+  width: min(34vw, 400px);
+  aspect-ratio: 5 / 6;
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--surface) 40%, transparent);
+  box-shadow: 0 20px 42px rgba(10, 16, 40, 0.24);
+  z-index: 1;
+}
+
+.photo-a {
+  left: 7%;
+  bottom: 16%;
+}
+
+.photo-b {
+  right: 7%;
+  top: 16%;
+}
+
 .section-cta {
   background: linear-gradient(
     180deg,
     color-mix(in oklab, var(--bg) 88%, transparent),
     color-mix(in oklab, var(--surface) 76%, transparent)
   );
+}
+
+.cta-photo-wall {
+  position: absolute;
+  top: 14%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(980px, calc(100% - 2.4rem));
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.cta-photo {
+  margin: 0;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  min-height: clamp(120px, 20vw, 230px);
+  box-shadow: 0 16px 34px rgba(10, 16, 40, 0.22);
 }
 
 .final-cta {
@@ -195,6 +300,44 @@ main {
 @media (min-width: 720px) {
   .feature-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .photo-card-left,
+  .photo-card-right {
+    display: none;
+  }
+
+  .photo-card-main {
+    width: min(62vw, 400px);
+    top: 18%;
+  }
+
+  .photo-strip,
+  .cta-photo-wall {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-strip .photo-chip:last-child,
+  .cta-photo-wall .cta-photo:last-child {
+    display: none;
+  }
+
+  .parallax-photo {
+    width: min(46vw, 320px);
+  }
+}
+
+@media (max-width: 640px) {
+  .photo-strip,
+  .cta-photo-wall {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+  }
+
+  .photo-b {
+    display: none;
   }
 }
 
