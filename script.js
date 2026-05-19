@@ -22,15 +22,100 @@ toggle.addEventListener('click', () => {
   updateToggleIcon();
 });
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  },
-  { threshold: 0.2 }
-);
+if (window.gsap && window.ScrollTrigger) {
+  gsap.registerPlugin(ScrollTrigger);
 
-document.querySelectorAll('.reveal').forEach((element) => observer.observe(element));
+  const sections = gsap.utils.toArray('.scroll-section');
+  sections.forEach((section) => {
+    const title = section.querySelector('.section-title');
+    const kicker = section.querySelector('.section-kicker');
+    const text = section.querySelector('.section-text');
+
+    gsap.set([kicker, title, text], { autoAlpha: 0, y: 36 });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        trigger: section,
+        start: 'top 70%',
+        end: 'bottom 35%',
+        scrub: 1.1,
+      },
+    });
+
+    timeline
+      .to(kicker, { autoAlpha: 1, y: 0, duration: 0.6 }, 0)
+      .to(title, { autoAlpha: 1, y: 0, duration: 0.9 }, 0.1)
+      .to(text, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.2);
+  });
+
+  gsap.fromTo(
+    '.floating-orb',
+    { scale: 0.68, yPercent: 15, autoAlpha: 0.16 },
+    {
+      scale: 1.2,
+      yPercent: -12,
+      autoAlpha: 0.36,
+      ease: 'none',
+      scrollTrigger: {
+        trigger: '.section-intro',
+        start: 'top bottom',
+        end: 'bottom top',
+        scrub: 1.4,
+      },
+    }
+  );
+
+  gsap.from('.feature-card', {
+    x: (index) => (index % 2 === 0 ? -85 : 85),
+    autoAlpha: 0,
+    stagger: 0.18,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: '.section-features',
+      start: 'top 62%',
+      end: 'bottom 45%',
+      scrub: 0.9,
+    },
+  });
+
+  gsap.to('.layer-back', {
+    yPercent: -18,
+    scale: 1.05,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-parallax',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  gsap.to('.layer-mid', {
+    yPercent: -30,
+    scale: 1.12,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-parallax',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  gsap.fromTo(
+    '.final-cta',
+    { scale: 0.86, autoAlpha: 0, y: 26 },
+    {
+      scale: 1,
+      y: 0,
+      autoAlpha: 1,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: '.section-cta',
+        start: 'top 68%',
+        end: 'bottom 45%',
+        scrub: 0.7,
+      },
+    }
+  );
+}

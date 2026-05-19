@@ -17,235 +17,62 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header class="hero">
-      <nav class="nav container">
-        <a class="logo" href="#">FAY <span>(Found Around You)</span></a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">
-          🌙
-        </button>
-      </nav>
-
-      <div class="hero-content container reveal">
-        <p class="eyebrow">Réseau social d'événements locaux</p>
-        <h1>Trouve, rejoins et crée des événements près de chez toi.</h1>
-        <p class="subtitle">
-          FAY connecte participants et créateurs pour faire vibrer ta ville avec des événements
-          qui te ressemblent.
-        </p>
-        <div class="cta-group">
-          <a href="#inscription" class="btn btn-primary">Je suis un Participant</a>
-          <a href="#inscription" class="btn btn-secondary">Je suis un Créateur</a>
-        </div>
-      </div>
-    </header>
+    <nav class="nav">
+      <a class="logo" href="#">FAY <span>Found Around You</span></a>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Basculer le thème">🌙</button>
+    </nav>
 
     <main>
-      <section id="comment-ca-marche" class="section container reveal">
-        <h2>Comment ça marche</h2>
-        <div class="grid two-cols">
-          <article class="panel">
-            <h3>Parcours User (Participant)</h3>
-            <ol>
-              <li>Active ta géolocalisation pour découvrir les événements autour de toi.</li>
-              <li>Filtre par catégorie (musique, sport, food, culture...).</li>
-              <li>Rejoins l'événement et échange avec la communauté.</li>
-            </ol>
-          </article>
-          <article class="panel">
-            <h3>Parcours Créateur</h3>
-            <ol>
-              <li>Crée ton profil organisateur en quelques clics.</li>
-              <li>Publie ton événement avec date, lieu et infos pratiques.</li>
-              <li>Gère les inscriptions et anime ta communauté locale.</li>
-            </ol>
-          </article>
-        </div>
-      </section>
-
-      <section id="fonctionnalites" class="section alt reveal">
-        <div class="container">
-          <h2>Fonctionnalités clés</h2>
-          <div class="grid cards">
-            <article class="card">
-              <div class="icon" aria-hidden="true">📍</div>
-              <h3>Géolocalisation intelligente</h3>
-              <p>Repère instantanément les événements les plus proches de toi.</p>
-            </article>
-            <article class="card">
-              <div class="icon" aria-hidden="true">🏷️</div>
-              <h3>Catégories d'events</h3>
-              <p>Explore facilement les activités selon tes passions.</p>
-            </article>
-            <article class="card">
-              <div class="icon" aria-hidden="true">🗓️</div>
-              <h3>Calendrier intégré</h3>
-              <p>Planifie ta semaine et ne rate plus aucun bon plan local.</p>
-            </article>
-            <article class="card">
-              <div class="icon" aria-hidden="true">🔔</div>
-              <h3>Alertes personnalisées</h3>
-              <p>Reçois des notifications quand un event t'intéresse apparaît.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="inspirations" class="section alt reveal">
-        <div class="container scrollytelling">
-          <h2>Scrollytelling : voyages, events & concerts</h2>
-          <p class="scrollytelling-intro">
-            Fais défiler pour découvrir des moments immersifs et inspirants à vivre autour de toi.
+      <section class="scroll-section section-intro">
+        <div class="floating-orb"></div>
+        <div class="content-wrap">
+          <p class="kicker section-kicker">Nouveau feed local</p>
+          <h1 class="section-title">Découvre les événements qui t’entourent en un seul scroll.</h1>
+          <p class="section-text">
+            Une expérience fluide inspirée des interfaces Apple pour explorer, réserver et partager.
           </p>
-          <div class="story-feed">
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1400&q=80"
-                  alt="Voyage sur une route de montagne"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Voyage</p>
-                <h3>Road trip panoramique</h3>
-                <p>Explore les itinéraires qui deviennent des expériences collectives.</p>
-              </div>
-            </article>
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=1400&q=80"
-                  alt="Paysage de voyage avec montagne et lac"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Voyage</p>
-                <h3>Escapade nature</h3>
-                <p>Repère les sorties locales pour t’évader le temps d’un week-end.</p>
-              </div>
-            </article>
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=1400&q=80"
-                  alt="Public lors d'un événement en extérieur"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Event</p>
-                <h3>Ambiance urbaine</h3>
-                <p>Retrouve les événements les plus dynamiques de ta ville en un scroll.</p>
-              </div>
-            </article>
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1400&q=80"
-                  alt="Foule pendant un événement local"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Event</p>
-                <h3>Festival local</h3>
-                <p>Partage des moments forts et rejoins les communautés près de chez toi.</p>
-              </div>
-            </article>
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1400&q=80"
-                  alt="Scène de concert avec lumières"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Concert</p>
-                <h3>Live électrisant</h3>
-                <p>Vis les concerts en direct et découvre les talents de demain.</p>
-              </div>
-            </article>
-            <article class="story-step card">
-              <div class="story-media">
-                <img
-                  src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1400&q=80"
-                  alt="Concert en plein air avec public enthousiaste"
-                  loading="lazy"
-                />
-              </div>
-              <div class="story-copy">
-                <p class="story-kicker">Concert</p>
-                <h3>Soirée en plein air</h3>
-                <p>Crée ton agenda musical et ne rate plus aucun son de ta région.</p>
-              </div>
-            </article>
+        </div>
+      </section>
+
+      <section class="scroll-section section-features">
+        <div class="content-wrap">
+          <p class="kicker section-kicker">Pensé pour tous</p>
+          <h2 class="section-title">Participant ou créateur, tout est instantané.</h2>
+          <div class="feature-grid">
+            <article class="feature-card">Découverte géolocalisée</article>
+            <article class="feature-card">Filtres intelligents</article>
+            <article class="feature-card">Planning intégré</article>
+            <article class="feature-card">Notifications ciblées</article>
           </div>
         </div>
       </section>
 
-      <section id="temoignages" class="section container reveal">
-        <h2>Témoignages</h2>
-        <div class="grid cards">
-          <blockquote class="card quote">
-            "Grâce à FAY, j'ai découvert des concerts incroyables à deux rues de chez moi !"
-            <cite>— Lina, participante</cite>
-          </blockquote>
-          <blockquote class="card quote">
-            "J'ai rempli mon atelier créatif en 48h. La communauté est super active."
-            <cite>— Mehdi, créateur</cite>
-          </blockquote>
-          <blockquote class="card quote">
-            "Simple, fun et local. C'est devenu mon réflexe pour sortir le week-end."
-            <cite>— Clara, participante</cite>
-          </blockquote>
+      <section class="scroll-section section-parallax">
+        <div class="parallax-layer layer-back"></div>
+        <div class="parallax-layer layer-mid"></div>
+        <div class="content-wrap">
+          <p class="kicker section-kicker">Immersion</p>
+          <h2 class="section-title">Une ambiance qui évolue avec ton rythme.</h2>
+          <p class="section-text">
+            Les visuels se déplacent en parallax pendant le scroll pour renforcer l’effet de profondeur.
+          </p>
         </div>
       </section>
 
-      <section id="inscription" class="section alt reveal">
-        <div class="container">
-          <h2>Inscription</h2>
-          <div class="grid two-cols">
-            <article class="panel pricing">
-              <h3>Compte User</h3>
-              <p class="price">Gratuit</p>
-              <ul>
-                <li>Accès illimité aux événements locaux</li>
-                <li>Recommandations personnalisées</li>
-                <li>Messagerie communautaire</li>
-              </ul>
-            </article>
-            <article class="panel pricing">
-              <h3>Compte Créateur</h3>
-              <p class="price">Gratuit</p>
-              <ul>
-                <li>Publication d'événements</li>
-                <li>Gestion des participants</li>
-                <li>Statistiques de visibilité</li>
-              </ul>
-            </article>
-          </div>
+      <section class="scroll-section section-cta">
+        <div class="content-wrap">
+          <p class="kicker section-kicker">Prêt à commencer ?</p>
+          <h2 class="section-title">Rejoins FAY et active ta ville.</h2>
+          <p class="section-text">
+            Trouve ton prochain concert, ton prochain event, ton prochain souvenir.
+          </p>
+          <a href="#" class="btn-primary final-cta">Commencer maintenant</a>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
-      <div class="container footer-grid">
-        <p class="logo">FAY <span>(Found Around You)</span></p>
-        <div class="footer-links">
-          <a href="#comment-ca-marche">Comment ça marche</a>
-          <a href="#fonctionnalites">Fonctionnalités</a>
-          <a href="#inspirations">Scrollytelling</a>
-          <a href="#inscription">Inscription</a>
-        </div>
-        <div class="socials" aria-label="Réseaux sociaux">
-          <a href="#" aria-label="X">X</a>
-        </div>
-      </div>
-      <p class="copyright">© 2026 FAY — Tous droits réservés.</p>
-    </footer>
-
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="./script.js"></script>
   </body>
 </html>
