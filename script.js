@@ -30,10 +30,19 @@ if (window.gsap && window.ScrollTrigger) {
     const title = section.querySelector('.section-title');
     const kicker = section.querySelector('.section-kicker');
     const text = section.querySelector('.section-text');
+    const photoElements = section.querySelectorAll('.photo-card, .photo-chip, .parallax-photo, .cta-photo');
     const introElements = [kicker, title, text].filter(Boolean);
 
     if (introElements.length) {
       gsap.set(introElements, { autoAlpha: 0, y: 36 });
+    }
+    if (photoElements.length) {
+      gsap.set(photoElements, {
+        autoAlpha: 0,
+        y: 60,
+        scale: 0.88,
+        rotate: (index) => (index % 2 === 0 ? -5 : 5),
+      });
     }
 
     const timeline = gsap.timeline({
@@ -56,6 +65,21 @@ if (window.gsap && window.ScrollTrigger) {
     }
     if (text) {
       timeline.to(text, { autoAlpha: 1, y: 0, duration: 0.8 }, 0.2);
+    }
+    if (photoElements.length) {
+      timeline.to(
+        photoElements,
+        {
+          autoAlpha: 1,
+          y: 0,
+          scale: 1,
+          rotate: 0,
+          stagger: 0.1,
+          duration: 0.9,
+          ease: 'power2.out',
+        },
+        0.05
+      );
     }
   });
 
@@ -89,6 +113,57 @@ if (window.gsap && window.ScrollTrigger) {
     },
   });
 
+  gsap.to('.photo-card-main', {
+    yPercent: -14,
+    scale: 1.08,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-intro',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.2,
+    },
+  });
+
+  gsap.to('.photo-card-left', {
+    yPercent: -22,
+    xPercent: 10,
+    rotate: -8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-intro',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.4,
+    },
+  });
+
+  gsap.to('.photo-card-right', {
+    yPercent: -18,
+    xPercent: -10,
+    rotate: 8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-intro',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.3,
+    },
+  });
+
+  gsap.to('.photo-chip', {
+    xPercent: (index) => (index % 2 === 0 ? -10 : 10),
+    yPercent: (index) => (index === 1 ? -16 : -9),
+    rotate: (index) => (index % 2 === 0 ? -4 : 4),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-features',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.1,
+    },
+  });
+
   gsap.to('.layer-back', {
     yPercent: -18,
     scale: 1.05,
@@ -110,6 +185,42 @@ if (window.gsap && window.ScrollTrigger) {
       start: 'top bottom',
       end: 'bottom top',
       scrub: true,
+    },
+  });
+
+  gsap.to('.photo-a', {
+    yPercent: -28,
+    rotate: -8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-parallax',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  gsap.to('.photo-b', {
+    yPercent: -34,
+    rotate: 8,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-parallax',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    },
+  });
+
+  gsap.to('.cta-photo', {
+    yPercent: (index) => (index % 2 === 0 ? -22 : -14),
+    rotate: (index) => (index % 2 === 0 ? -5 : 5),
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.section-cta',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: 1.3,
     },
   });
 
