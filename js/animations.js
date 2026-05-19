@@ -3,6 +3,40 @@ export const initializeAnimations = () => {
     return;
   }
 
+  const splitTextIntoWords = (element) => {
+    if (!element || element.dataset.wordsSplit === 'true') {
+      return [];
+    }
+
+    const rawText = element.textContent?.trim() ?? '';
+    if (!rawText) {
+      return [];
+    }
+
+    const words = rawText.split(/\s+/);
+    const fragment = document.createDocumentFragment();
+    const wordElements = [];
+
+    words.forEach((word, index) => {
+      const span = document.createElement('span');
+      span.className = 'reveal-word';
+      span.textContent = word;
+      fragment.append(span);
+
+      if (index < words.length - 1) {
+        fragment.append(' ');
+      }
+
+      wordElements.push(span);
+    });
+
+    element.textContent = '';
+    element.append(fragment);
+    element.dataset.wordsSplit = 'true';
+
+    return wordElements;
+  };
+
   gsap.registerPlugin(ScrollTrigger);
 
   const sections = gsap.utils.toArray('.scroll-section');
@@ -10,6 +44,7 @@ export const initializeAnimations = () => {
     const title = section.querySelector('.section-title');
     const kicker = section.querySelector('.section-kicker');
     const text = section.querySelector('.section-text');
+    const textWords = splitTextIntoWords(text);
     const photoElements = section.querySelectorAll('.photo-card, .photo-chip, .parallax-photo, .cta-photo');
     const introElements = [kicker, title, text].filter(Boolean);
 
@@ -25,6 +60,9 @@ export const initializeAnimations = () => {
         scale: 0.92,
         rotate: (index) => (index % 2 === 0 ? -4 : 4),
       });
+    }
+    if (textWords.length) {
+      gsap.set(textWords, { autoAlpha: 0, y: 14 });
     }
 
     ScrollTrigger.create({
@@ -79,18 +117,34 @@ export const initializeAnimations = () => {
     }
 
     if (text) {
-      gsap.to(text, {
-        autoAlpha: 1,
-        y: 0,
-        duration: 0.65,
-        ease: 'power2.out',
-        delay: 0.06,
-        scrollTrigger: {
-          trigger: section,
-          start: 'top 72%',
-          toggleActions: 'play reverse play reverse',
-        },
-      });
+      if (textWords.length) {
+        gsap.to(textWords, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.35,
+          stagger: 0.045,
+          ease: 'power2.out',
+          delay: 0.06,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 72%',
+            toggleActions: 'play reverse play reverse',
+          },
+        });
+      } else {
+        gsap.to(text, {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.65,
+          ease: 'power2.out',
+          delay: 0.06,
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 72%',
+            toggleActions: 'play reverse play reverse',
+          },
+        });
+      }
     }
 
     if (photoElements.length) {

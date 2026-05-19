@@ -76,6 +76,11 @@
   font-size: clamp(1rem, 2.6vw, 1.3rem);
 }
 
+.reveal-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
 .floating-orb {
   position: absolute;
   width: min(58vw, 540px);
