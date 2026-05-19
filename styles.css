@@ -268,6 +268,7 @@ main {
   justify-content: center;
   min-height: 4rem;
   line-height: 1.35;
+  will-change: transform, opacity, filter;
 }
 
 .section-parallax {
