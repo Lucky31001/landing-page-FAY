@@ -256,10 +256,18 @@ main {
 
 .feature-card {
   border: 1px solid var(--line);
+  background: var(--surface);
   background: color-mix(in oklab, var(--surface) 84%, transparent);
   border-radius: 1rem;
   padding: 1rem;
+  color: var(--text);
   font-weight: 500;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 4rem;
+  line-height: 1.35;
 }
 
 .section-parallax {
