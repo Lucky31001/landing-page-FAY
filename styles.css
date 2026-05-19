@@ -95,6 +95,22 @@ main {
   display: grid;
   place-items: center;
   padding: 6rem 1.4rem 2.5rem;
+  transform-origin: 50% 55%;
+  transition: filter 0.45s ease, box-shadow 0.45s ease;
+}
+
+.scroll-section.is-active {
+  filter: saturate(1.06);
+}
+
+.scroll-section .content-wrap {
+  transition: box-shadow 0.45s ease, border-color 0.45s ease, transform 0.45s ease;
+}
+
+.scroll-section.is-active .content-wrap {
+  box-shadow: 0 20px 40px rgba(10, 16, 40, 0.22);
+  border-color: color-mix(in oklab, var(--accent-2) 28%, var(--line));
+  transform: translateY(-4px);
 }
 
 .scroll-section:not(:last-of-type)::after {
