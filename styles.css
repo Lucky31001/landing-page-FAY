@@ -32,6 +32,11 @@ body {
   line-height: 1.45;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
 h1,
 h2,
 p {
@@ -90,7 +95,25 @@ main {
   display: grid;
   place-items: center;
   padding: 6rem 1.4rem 2.5rem;
-  border-bottom: 1px solid var(--line);
+}
+
+.scroll-section:not(:last-of-type)::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 1.2rem;
+  transform: translateX(-50%);
+  width: min(220px, 58vw);
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--accent-2) 40%, var(--line)),
+    color-mix(in oklab, var(--accent) 40%, var(--line)),
+    transparent
+  );
+  opacity: 0.85;
+  pointer-events: none;
 }
 
 .content-wrap {
