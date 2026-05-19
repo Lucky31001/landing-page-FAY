@@ -15,7 +15,11 @@ Le projet met en avant une expérience visuelle fluide avec :
 
 - `index.html` : structure de la landing page
 - `styles.css` : styles, thèmes et responsive
-- `script.js` : logique thème + animations GSAP
+- `js/main.js` : point d’entrée JavaScript
+- `js/theme.js` : gestion du thème clair/sombre
+- `js/images.js` : fallback des images en erreur
+- `js/animations.js` : animations GSAP + ScrollTrigger
+- `js/constants.js` : constantes partagées
 
 ## Lancer le projet
 
